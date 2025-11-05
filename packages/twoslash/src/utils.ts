@@ -45,6 +45,8 @@ export function typesToExtension(types: string) {
     cts: 'ts',
     mjs: 'js',
     cjs: 'js',
+    ets: 'ets',
+    arkts: 'ets',
   }
 
   if (map[types])

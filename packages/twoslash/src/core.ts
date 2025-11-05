@@ -134,7 +134,7 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
     // extract markers
     findQueryMarkers(code, meta, pc)
 
-    const supportedFileTyes = ['js', 'jsx', 'ts', 'tsx']
+    const supportedFileTyes = ['js', 'jsx', 'ts', 'tsx', 'ets']
     meta.virtualFiles = splitFiles(code, defaultFilename, fsRoot)
     const identifiersMap = new Map<string, ReturnType<typeof getIdentifierTextSpans>>()
 

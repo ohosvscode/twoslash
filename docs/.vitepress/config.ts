@@ -1,11 +1,10 @@
-/* eslint-disable antfu/no-top-level-await */
 import type { DefaultTheme } from 'vitepress'
-import antfu from '@antfu/eslint-config'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { bundledThemes } from 'shiki'
-import { createTwoslasher as createTwoslasherESLint } from 'twoslash-eslint'
+import { createTwoslasher } from 'twoslash'
 import { defineConfig } from 'vitepress'
 import { version } from '../../package.json'
+import etsTmLanguageJson from './ets.tmLanguage.json'
 import vite from './vite.config'
 
 const GUIDES: DefaultTheme.NavItemWithLink[] = [
@@ -13,6 +12,7 @@ const GUIDES: DefaultTheme.NavItemWithLink[] = [
   { text: 'Installation', link: '/guide/install' },
   { text: 'Syntax Highlighting', link: '/guide/highlight' },
   { text: 'Migration', link: '/guide/migrate' },
+  { text: 'ArkTS', link: '/guide/arkts' },
 ]
 
 const REFERENCES: DefaultTheme.NavItemWithLink[] = [
@@ -39,31 +39,77 @@ export default defineConfig({
   title: 'Twoslash',
   description: 'Markup for TypeScript information in docs',
   markdown: {
-    languages: ['vue'],
+    languages: [
+      'vue',
+      {
+        ...etsTmLanguageJson as any,
+        name: 'ets',
+        aliases: ['arkts'],
+      },
+    ],
     theme: {
-      light: 'vitesse-light',
-      dark: 'vitesse-dark',
+      light: 'monokai',
+      dark: 'monokai',
     },
     async shikiSetup(shiki) {
       await shiki.loadTheme(...Object.keys(bundledThemes) as any)
     },
     codeTransformers: [
-      transformerTwoslash() as any,
       transformerTwoslash({
-        errorRendering: 'hover',
-        twoslasher: createTwoslasherESLint({
-          eslintConfig: [
-            ...await antfu() as any,
-            {
-              files: ['**'],
-              rules: {
-                'style/eol-last': 'off',
-              },
-            },
-          ],
-        }) as any,
-        explicitTrigger: /\beslint-check\b/,
-      }),
+        twoslasher: createTwoslasher(),
+        twoslashOptions: {
+          compilerOptions: {
+            lib: ['lib.es2021.d.ts'],
+            enableStrictCheckOHModule: true,
+            skipOhModulesLint: false,
+            experimentalDecorators: true,
+            emitDecoratorMetadata: true,
+            strict: true,
+            strictPropertyInitialization: false,
+            moduleDetection: 3 satisfies import('typescript').ModuleDetectionKind.Force,
+            moduleResolution: 2 satisfies import('typescript').ModuleResolutionKind.NodeJs,
+            module: 99 satisfies import('typescript').ModuleKind.ESNext,
+            target: 99 satisfies import('typescript').ScriptTarget.ESNext,
+            etsAnnotationsEnable: true,
+            compatibleSdkVersion: 20,
+            // packageManagerType: 'ohpm',
+            compatibleSdkVersionStage: 'beta2',
+            alwaysStrict: true,
+            mixCompile: true,
+            tsImportSendableEnable: true,
+          },
+        },
+        langs: [
+          'js',
+          'javascript',
+          'ts',
+          'typescript',
+          'tsx',
+          'jsx',
+          'json',
+          'jsn',
+          'map',
+          'mts',
+          'cts',
+          'ets',
+          'arkts',
+        ],
+      }) as any,
+      // transformerTwoslash({
+      //   errorRendering: 'hover',
+      //   twoslasher: createTwoslasherESLint({
+      //     eslintConfig: [
+      //       ...await antfu() as any,
+      //       {
+      //         files: ['**'],
+      //         rules: {
+      //           'style/eol-last': 'off',
+      //         },
+      //       },
+      //     ],
+      //   }) as any,
+      //   explicitTrigger: /\beslint-check\b/,
+      // }),
       {
         // Render custom themes with codeblocks
         name: 'twoslash:inline-theme',

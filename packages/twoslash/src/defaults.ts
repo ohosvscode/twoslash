@@ -45,3 +45,8 @@ export const defaultHandbookOptions: HandbookOptions = {
   showEmittedFile: undefined,
   keepNotations: false,
 }
+
+export const defaultLibs = [
+  'lib.es2021.d.ts',
+  'lib.decorators.legacy.d.ts',
+]

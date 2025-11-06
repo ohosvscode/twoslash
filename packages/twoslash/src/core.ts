@@ -5,7 +5,7 @@ import type { CompilerOptionDeclaration, CreateTwoslashOptions, TwoslashExecuteO
 import { createFSBackedSystem, createSystem, createVirtualTypeScriptEnvironment } from '@typescript/vfs'
 
 import { createPositionConverter, isInRange, isInRanges, removeCodeRanges, resolveNodePositions } from 'twoslash-protocol'
-import { defaultCompilerOptions, defaultHandbookOptions } from './defaults'
+import { defaultCompilerOptions, defaultHandbookOptions, defaultLibs } from './defaults'
 import { TwoslashError } from './error'
 
 import { findCutNotations, findFlagNotations, findQueryMarkers, getExtension, getIdentifierTextSpans, getObjectHash, removeTsExtension, splitFiles, typesToExtension } from './utils'
@@ -19,7 +19,7 @@ type TS = typeof import('typescript')
  * Create a Twoslash instance with cached TS environments
  */
 export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): TwoslashInstance {
-  const ts: TS = createOptions.tsModule!
+  const ts: TS = createOptions.tsModule! as unknown as TS
   const tsOptionDeclarations = (ts as any).optionDeclarations as CompilerOptionDeclaration[]
 
   // In a browser we want to DI everything, in node we can use local infra
@@ -62,7 +62,7 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
       extension: typesToExtension(extension),
       compilerOptions: {
         ...defaultCompilerOptions,
-        lib: Object.keys(etsGlobalScopeFiles).map(i => `/${i}`),
+        lib: Object.keys(etsGlobalScopeFiles).map(i => `/${i}`).concat(defaultLibs.map(i => `/${i}`)),
         baseUrl: fsRoot,
         ...createOptions.compilerOptions,
         ...options.compilerOptions,

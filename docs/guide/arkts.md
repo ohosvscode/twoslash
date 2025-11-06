@@ -12,6 +12,9 @@ function add(a: number, b: number): number {
 
 add(1, 3);
 
+// Default lib support
+Object.keys({ a: 1, b: 2 });
+
 // ArkTS API20 @interface style decorator support
 @interface MyDecorator {
   /**

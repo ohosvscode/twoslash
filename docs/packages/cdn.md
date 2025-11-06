@@ -35,7 +35,7 @@ npm i -D twoslash-cdn
 ```
 
 ```ts twoslash
-import { createTwoslashFromCDN } from 'twoslash-cdn'
+import { createTwoslashFromCDN } from '@arkts/twoslash-cdn'
 
 const twoslash = createTwoslashFromCDN()
 // ...

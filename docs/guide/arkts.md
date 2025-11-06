@@ -1,14 +1,18 @@
 # ArkTS Support
 
+This page using to test the ArkTS support of Twoslash.
+
 ```ets twoslash
 import { ArcList, ArcListAttribute, ArcListItem } from '@kit.ArkUI'
 
+// Plain function
 function add(a: number, b: number): number {
   return a + b;
 }
 
 add(1, 3);
 
+// ArkTS API20 @interface style decorator support
 @interface MyDecorator {
   /**
    * @description The value of the decorator
@@ -22,6 +26,7 @@ class MyClass {
   value: string = "hello";
 }
 
+// Struct component support
 @Entry
 @Component
 struct Index {

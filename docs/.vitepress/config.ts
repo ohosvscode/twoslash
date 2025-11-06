@@ -34,8 +34,8 @@ const INTEGRATIONS: DefaultTheme.NavItemWithLink[] = [
 
 const VERSIONS: DefaultTheme.NavItemWithLink[] = [
   { text: `v${version} (current)`, link: '/' },
-  { text: `Release Notes`, link: 'https://github.com/twoslashes/twoslash/releases' },
-  { text: `Contributing`, link: 'https://github.com/twoslashes/twoslash/blob/main/CONTRIBUTING.md' },
+  { text: `Release Notes`, link: 'https://github.com/ohosvscode/twoslash/twoslash/releases' },
+  { text: `Contributing`, link: 'https://github.com/ohosvscode/twoslash/blob/main/CONTRIBUTING.md' },
 ]
 
 // https://vitepress.dev/reference/site-config
@@ -52,8 +52,8 @@ export default defineConfig({
       },
     ],
     theme: {
-      light: 'monokai',
-      dark: 'monokai',
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
     },
     async shikiSetup(shiki) {
       await shiki.loadTheme(...Object.keys(bundledThemes) as any)
@@ -182,7 +182,7 @@ export default defineConfig({
     ),
 
     editLink: {
-      pattern: 'https://github.com/twoslashes/twoslash/edit/main/docs/:path',
+      pattern: 'https://github.com/ohosvscode/twoslash/edit/main/docs/:path',
       text: 'Suggest changes to this page',
     },
     search: {
@@ -190,7 +190,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/twoslashes/twoslash' },
+      { icon: 'github', link: 'https://github.com/ohosvscode/twoslash' },
     ],
 
     footer: {

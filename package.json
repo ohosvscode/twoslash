@@ -53,6 +53,7 @@
     "typescript": "catalog:",
     "unbuild": "catalog:",
     "unplugin-vue-components": "catalog:",
+    "unstorage": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "catalog:",
     "vitest": "catalog:",

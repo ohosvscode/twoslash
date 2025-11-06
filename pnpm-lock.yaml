@@ -256,6 +256,9 @@ importers:
       twoslash-eslint:
         specifier: 'catalog:'
         version: 0.3.4(eslint@9.33.0(jiti@2.5.1))
+      twoslash-protocol:
+        specifier: 'catalog:'
+        version: 0.3.4
       twoslash-vue:
         specifier: ^0.3.4
         version: 0.3.4(typescript@5.9.3)
@@ -357,6 +360,9 @@ importers:
       ohos-typescript:
         specifier: 'catalog:'
         version: 4.9.5-r10
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.16.0(typescript@5.9.3)
       unbuild:
         specifier: 'catalog:'
         version: 3.6.0(sass@1.90.0)(typescript@5.9.3)(vue@3.5.18(typescript@5.9.3))

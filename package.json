@@ -48,6 +48,7 @@
     "tsdown": "catalog:",
     "tslib": "catalog:",
     "twoslash-eslint": "catalog:",
+    "twoslash-protocol": "catalog:",
     "twoslash-vue": "workspace:*",
     "typescript": "catalog:",
     "unbuild": "catalog:",

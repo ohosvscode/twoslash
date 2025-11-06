@@ -55,6 +55,7 @@
     "@typescript/ata": "catalog:",
     "@typescript/vfs": "catalog:",
     "ohos-typescript": "catalog:",
+    "tsdown": "catalog:",
     "unbuild": "catalog:",
     "unstorage": "catalog:",
     "vite": "catalog:",

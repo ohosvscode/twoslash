@@ -1,8 +1,8 @@
 {
-  "name": "twoslash",
+  "name": "@arkts/twoslash",
   "type": "module",
   "version": "0.3.4",
-  "description": "Markup for generating rich type information in your documentations ahead of time",
+  "description": "Twoslash for ArkTS language, markup for generating rich type information in your documentations ahead of time.",
   "author": "TypeScript team",
   "license": "MIT",
   "homepage": "https://github.com/twoslashes/twoslash",
@@ -35,19 +35,6 @@
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.mts",
-  "typesVersions": {
-    "*": {
-      "./core": [
-        "./dist/core.d.mts"
-      ],
-      "./fallback": [
-        "./dist/fallback.d.mts"
-      ],
-      "*": [
-        "./dist/index.d.mts"
-      ]
-    }
-  },
   "files": [
     "dist"
   ],

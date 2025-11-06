@@ -23,6 +23,7 @@ catalog:
   '@vue/language-core': ^3.0.5
   '@vueuse/core': ^13.6.0
   bumpp: ^10.2.2
+  defu: ^6.1.4
   eslint: ^9.33.0
   esno: ^4.8.0
   fast-glob: ^3.3.3

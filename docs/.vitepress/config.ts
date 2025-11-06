@@ -59,24 +59,7 @@ export default defineConfig({
         twoslasher: createTwoslasher(),
         twoslashOptions: {
           compilerOptions: {
-            lib: ['lib.es2021.d.ts'],
-            enableStrictCheckOHModule: true,
-            skipOhModulesLint: false,
-            experimentalDecorators: true,
-            emitDecoratorMetadata: true,
-            strict: true,
-            strictPropertyInitialization: false,
-            moduleDetection: 3 satisfies import('typescript').ModuleDetectionKind.Force,
             moduleResolution: 2 satisfies import('typescript').ModuleResolutionKind.NodeJs,
-            module: 99 satisfies import('typescript').ModuleKind.ESNext,
-            target: 99 satisfies import('typescript').ScriptTarget.ESNext,
-            etsAnnotationsEnable: true,
-            compatibleSdkVersion: 20,
-            // packageManagerType: 'ohpm',
-            compatibleSdkVersionStage: 'beta2',
-            alwaysStrict: true,
-            mixCompile: true,
-            tsImportSendableEnable: true,
           },
         },
         langs: [
@@ -119,7 +102,7 @@ export default defineConfig({
           if (!match?.[1])
             return
           const theme = match[1]
-          const themes = theme.split(',').map(i => i.trim())
+          const themes = theme.split(',').map((i: string) => i.trim())
           if (!themes.length)
             return
           if (themes.length === 1) {

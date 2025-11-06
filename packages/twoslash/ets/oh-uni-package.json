@@ -1,0 +1,12 @@
+{
+  "apiMinorVersion": "0",
+  "apiPatchVersion": "0",
+  "apiVersion": "20",
+  "displayName": "Ets",
+  "meta": {
+    "metaVersion": "3.0.0"
+  },
+  "path": "ets",
+  "releaseType": "Canary1",
+  "version": "6.0.0.34"
+}

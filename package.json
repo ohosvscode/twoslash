@@ -8,7 +8,7 @@
     "typecheck": "tsc",
     "build": "pnpm -r run build",
     "test": "vitest",
-    "lint": "eslint .",
+    "lint": "eslint . --no-warn-ignored",
     "bench": "vitest bench --run",
     "release": "bumpp -r && pnpm -r publish",
     "docs": "pnpm -C docs run docs:dev",
@@ -68,6 +68,6 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "eslint --fix --no-warn-ignored"
   }
 }

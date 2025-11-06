@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@typescript/vfs": "catalog:",
+    "fast-glob": "catalog:",
     "twoslash-protocol": "workspace:*"
   },
   "devDependencies": {

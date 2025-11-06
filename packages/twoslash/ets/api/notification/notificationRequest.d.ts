@@ -1,0 +1,489 @@
+/*
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License"),
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @file Information carried when a notification is sent
+ * @kit NotificationKit
+ */
+import notification from '../@ohos.notification';
+import image from '../@ohos.multimedia.image';
+import type notificationManager from '../@ohos.notificationManager';
+import { WantAgent } from '../@ohos.wantAgent';
+import { NotificationContent } from './notificationContent';
+import { NotificationActionButton } from './notificationActionButton';
+import { NotificationTemplate } from './notificationTemplate';
+import { NotificationFlags } from './notificationFlags';
+/**
+ * Defines a NotificationRequest instance.
+ *
+ * @typedef NotificationRequest
+ * @syscap SystemCapability.Notification.Notification
+ * @since 7
+ */
+/**
+ * Defines a NotificationRequest instance.
+ *
+ * @typedef NotificationRequest
+ * @syscap SystemCapability.Notification.Notification
+ * @crossplatform
+ * @since 12
+ */
+export interface NotificationRequest {
+    /**
+     * Notification content.
+     *
+     * @type { NotificationContent }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Notification content.
+     *
+     * @type { NotificationContent }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    content: NotificationContent;
+    /**
+     * Notification ID. The default value is 0. If the same notification ID exists, the notification content is updated.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Notification ID. The default value is 0. If the same notification ID exists, the notification content is updated.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    id?: number;
+    /**
+     * Unique ID carried in a notification sent by an app, which is used for notification deduplication.
+     * If an app publishes notifications with the same appMessageId locally or on the cloud, the device displays only one message.
+     * Repeated notifications received later will be silenced and deduplicated, and will not be displayed or notified.
+     * The deduplication flag is valid only within 24 hours after the notification is published. After 24 hours or the device is restarted,
+     * the deduplication flag becomes invalid.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 12
+     */
+    appMessageId?: string;
+    /**
+     * Notification slot type.
+     *
+     * @type { ?notification.SlotType }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     * @deprecated since 11
+     * @useinstead NotificationRequest#notificationSlotType
+     */
+    slotType?: notification.SlotType;
+    /**
+     * Notification slot type. The default value is OTHER_TYPES.
+     *
+     * @type { ?notificationManager.SlotType }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 11
+     */
+    notificationSlotType?: notificationManager.SlotType;
+    /**
+     * Whether the notification is an ongoing notification.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Whether the notification is an ongoing notification.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    isOngoing?: boolean;
+    /**
+     * Whether the notification can be removed.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    isUnremovable?: boolean;
+    /**
+     * Whether to update notifications only.
+     * - true: If a notification with the same ID exists, the notification is updated; otherwise, the notification fails to update and no notification is created.
+     * - false (default): If a notification with the same ID exists, the notification is updated; otherwise, a notification is created.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 18
+     */
+    updateOnly?: boolean;
+    /**
+     * Time when the notification is sent. This API is automatically generated by the system. Data format: timestamp, in milliseconds.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Time when the notification is sent. This API is automatically generated by the system. Data format: timestamp, in milliseconds.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    deliveryTime?: number;
+    /**
+     * Whether the notification is automatically cleared. This parameter is valid only when the notification carries wantAgent or actionButtons.
+     * - true (default): The current notification is automatically cleared after the notification or button is tapped.
+     * - false: The current notification is retained after the notification or button is tapped.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Whether the notification is automatically cleared. This parameter is valid only when the notification carries wantAgent or actionButtons.
+     * - true (default): The current notification is automatically cleared after the notification or button is tapped.
+     * - false: The current notification is retained after the notification or button is tapped.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    tapDismissed?: boolean;
+    /**
+     * Time when the notification is automatically cleared. Data format: timestamp, in milliseconds.
+     * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms),
+     * you can set new Date().getTime() + 3000 to meet this requirement.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Time when the notification is automatically cleared. Data format: timestamp, in milliseconds.
+     * For example, if a notification is to be cleared after being displayed for 3 seconds (3000 ms),
+     * you can set new Date().getTime() + 3000 to meet this requirement.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    autoDeletedTime?: number;
+    /**
+     * WantAgent instance to which the notification will be redirected after being clicked.
+     *
+     * @type { ?WantAgent }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    wantAgent?: WantAgent;
+    /**
+     * Extended parameter.
+     *
+     * @type { ?object }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    extraInfo?: {
+        [key: string]: any;
+    };
+    /**
+     * Background color of the notification.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    color?: number;
+    /**
+     * Whether the notification background color can be enabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    colorEnabled?: boolean;
+    /**
+     * Whether to send a notification only once when the notification is published or updated.
+     * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
+     *         the notification mode is changed to LEVEL_MIN.
+     * - false (default): A notification is sent based on the configured notification mode.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Whether to send a notification only once when the notification is published or updated.
+     * - true: A notification is sent only when the notification is published for the first time. For subsequent update,
+     *         the notification mode is changed to LEVEL_MIN.
+     * - false (default): A notification is sent based on the configured notification mode.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    isAlertOnce?: boolean;
+    /**
+     * Whether to display the stopwatch.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    isStopwatch?: boolean;
+    /**
+     * Whether to display the countdown time.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    isCountDown?: boolean;
+    /**
+     * Whether the notification is displayed as a floating icon in the status bar.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    isFloatingIcon?: boolean;
+    /**
+     * Notification label. The label field can be used independently, or used together with ID as a notification identifier. ID is preferentially used.
+     * If the label is not empty when a notification is published, you need to specify the label when updating or deleting the notification.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    label?: string;
+    /**
+     * Notification badge type.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    badgeIconStyle?: number;
+    /**
+     * Whether to display the time when the notification is delivered.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    /**
+     * Whether to display the time when the notification is delivered.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    showDeliveryTime?: boolean;
+    /**
+     * Notification button. A notification can contain a maximum of two buttons by default.
+     *
+     * @type { ?Array<NotificationActionButton> }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    actionButtons?: Array<NotificationActionButton>;
+    /**
+     * Small notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is
+     * obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
+     *
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    smallIcon?: image.PixelMap;
+    /**
+     * Large notification icon. Optional field. The total number of the icon pixel bytes cannot exceed 192 KB (which is
+     * obtained through getPixelBytesNumber. The recommended icon size is 128 px × 128 px.
+     *
+     * @type { ?image.PixelMap }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    largeIcon?: image.PixelMap;
+    /**
+     * Notification group name. This parameter is left blank by default.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    /**
+     * Notification group name. This parameter is left blank by default.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    groupName?: string;
+    /**
+     * Name of the bundle that creates the notification.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    readonly creatorBundleName?: string;
+    /**
+     * UID used for creating the notification.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    readonly creatorUid?: number;
+    /**
+     * PID used for creating the notification.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    readonly creatorPid?: number;
+    /**
+     * ID of the user who creates the notification.
+     *
+     * @type { ?number }
+     * @readonly
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    readonly creatorUserId?: number;
+    /**
+     * Name of the custom ringtone file for application notifications.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 12
+     */
+    sound?: string;
+    /**
+     * Unique ID of the notification.
+     *
+     * @type { ?string }
+     * @readonly
+     * @syscap SystemCapability.Notification.Notification
+     * @since 7
+     */
+    readonly hashCode?: string;
+    /**
+     * Notification template.
+     *
+     * @type { ?NotificationTemplate }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    template?: NotificationTemplate;
+    /**
+     * Distributed notification options. Not supported currently.
+     *
+     * @type { ?DistributedOptions }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    distributedOption?: DistributedOptions;
+    /**
+     * Notification flags.
+     *
+     * @type { ?NotificationFlags }
+     * @readonly
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    readonly notificationFlags?: NotificationFlags;
+    /**
+     * WantAgent instance to which the notification will be redirected when it is removed.
+     * Currently, redirection to UIAbility is not supported. Only common events can be published (that is, actionType is set to 4).
+     *
+     * @type { ?WantAgent }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
+     */
+    removalWantAgent?: WantAgent;
+    /**
+     * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared;
+     * if the value is greater than 99, 99+ is displayed on the badge.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 9
+     */
+    /**
+     * Number of notifications displayed on the application icon. If the badgeNumber is set to 0, badges are cleared;
+     * if the value is greater than 99, 99+ is displayed on the badge.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Notification.Notification
+     * @crossplatform
+     * @since 12
+     */
+    badgeNumber?: number;
+}
+/**
+ * Describes distributed notification options.
+ *
+ * @typedef DistributedOptions
+ * @syscap SystemCapability.Notification.Notification
+ * @since 8
+ */
+export interface DistributedOptions {
+    /**
+     * Whether the notification is a distributed notification.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    isDistributed?: boolean;
+    /**
+     * List of the devices to which the notification can be synchronized.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    supportDisplayDevices?: Array<string>;
+    /**
+     * List of the devices on which the notification can be opened.
+     *
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.Notification.Notification
+     * @since 8
+     */
+    supportOperateDevices?: Array<string>;
+}

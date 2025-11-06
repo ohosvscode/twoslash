@@ -10,6 +10,8 @@
   "dependencies": {
     "@unocss/reset": "catalog:",
     "@vueuse/core": "catalog:",
+    "defu": "catalog:",
+    "fast-glob": "catalog:",
     "floating-vue": "catalog:",
     "fuse.js": "catalog:",
     "sass": "catalog:",

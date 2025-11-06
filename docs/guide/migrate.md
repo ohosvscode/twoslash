@@ -36,7 +36,7 @@ const result = twoslasher('import { ref } from "vue"', 'ts') // new interface
 
 const legacy = convertLegacyReturn(result) // <--
 
-console.log(legacy.staticQuickInfos) // the old interface
+// console.log(legacy.staticQuickInfos) // the old interface
 ```
 
 ### Playground URL

@@ -5,10 +5,11 @@ import type { CompilerOptionDeclaration, CreateTwoslashOptions, TwoslashExecuteO
 import { createFSBackedSystem, createSystem, createVirtualTypeScriptEnvironment } from '@typescript/vfs'
 
 import { createPositionConverter, isInRange, isInRanges, removeCodeRanges, resolveNodePositions } from 'twoslash-protocol'
+import { etsApiFiles, etsGlobalScopeFiles } from '../ets.generated'
 import { defaultCompilerOptions, defaultHandbookOptions } from './defaults'
 import { TwoslashError } from './error'
-import { findCutNotations, findFlagNotations, findQueryMarkers, getExtension, getIdentifierTextSpans, getObjectHash, removeTsExtension, splitFiles, typesToExtension } from './utils'
 
+import { findCutNotations, findFlagNotations, findQueryMarkers, getExtension, getIdentifierTextSpans, getObjectHash, removeTsExtension, splitFiles, typesToExtension } from './utils'
 import { validateCodeForErrors } from './validation'
 
 export * from './public'
@@ -157,7 +158,7 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
         const text = quickInfo.displayParts.map(dp => dp.text).join('')
 
         const docs = quickInfo.documentation?.map(d => d.text).join('\n') || undefined
-        const tags = quickInfo.tags?.map(t => [t.name, t.text?.map(i => i.text).join('')] as [string, string | undefined])
+        const tags = quickInfo.tags?.map(t => [t.name, (t.text as import('typescript').SymbolDisplayPart[])?.map(i => i.text).join('')] as [string, string | undefined])
 
         return {
           type: 'hover',
@@ -182,6 +183,18 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
           )
         }
       })
+
+    Object.entries(etsApiFiles).forEach(([filename, content]) => {
+      if (!meta.virtualFiles.find(i => i.filename === filename)) {
+        env.createFile(fsRoot + filename, content)
+      }
+    })
+
+    Object.entries(etsGlobalScopeFiles).forEach(([filename, content]) => {
+      if (!meta.virtualFiles.find(i => i.filename === filename)) {
+        env.createFile(fsRoot + filename, content)
+      }
+    })
 
     // # region write files into the FS
     for (const file of meta.virtualFiles) {

@@ -1,5 +1,5 @@
 {
-  "name": "twoslash-cdn",
+  "name": "@arkts/twoslash-cdn",
   "type": "module",
   "version": "0.3.4",
   "description": "Run Twoslash on the browser, with Auto-Type-Acquisition on CDN.",
@@ -40,7 +40,7 @@
   ],
   "scripts": {
     "play": "nr -C playground dev",
-    "build": "unbuild",
+    "build": "tsdown --external ohos-typescript",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build"
@@ -49,13 +49,12 @@
     "typescript": "^5.5.0"
   },
   "dependencies": {
-    "twoslash": "workspace:*"
+    "@arkts/twoslash": "workspace:*"
   },
   "devDependencies": {
     "@typescript/ata": "catalog:",
     "@typescript/vfs": "catalog:",
-    "twoslash-cdn": "workspace:*",
-    "typescript": "catalog:",
+    "ohos-typescript": "catalog:",
     "unbuild": "catalog:",
     "unstorage": "catalog:",
     "vite": "catalog:",

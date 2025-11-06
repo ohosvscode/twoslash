@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import fg from 'fast-glob'
-import { defineBuildConfig } from 'unbuild'
+import { defineConfig } from 'tsdown'
 
 const etsGlobalScopeFiles = fg.sync([
   'ets/component/*.{d.ts,d.ets}',
@@ -92,22 +92,80 @@ export type ApiFileNames = ${apiFileNames.map(file => `'${file.replace('.d.ts', 
 export const API_FILENAMES: ApiFileNames[] = ${JSON.stringify(apiFileNames.map(file => file.replace('.d.ts', '').replace('.d.ets', '').replace('.ts', '')), null, 2)};
 export const GLOBAL_FILENAMES: GlobalFileNames[] = ${JSON.stringify(globalFileNames.map(file => file.replace('.d.ts', '').replace('.d.ets', '').replace('.ts', '')), null, 2)};`)
 
-export default defineBuildConfig({
-  entries: [
-    'src/index',
-    'src/core',
-    'src/fallback',
-    'src/loader',
-    {
-      input: 'src/generated/',
-      outDir: 'dist/generated',
-      builder: 'mkdist',
-    },
-  ],
-  declaration: true,
-  clean: true,
-  rollup: {
-    emitCJS: true,
-    inlineDependencies: true,
+export default defineConfig([
+  {
+    entry: [
+      'src/index.ts',
+      'src/core.ts',
+      'src/fallback.ts',
+      'src/loader.ts',
+    ],
+    external: ['ohos-typescript'],
   },
-})
+  {
+    entry: fg.sync('src/generated/global/*.ts', {
+      cwd: __dirname,
+      absolute: false,
+      onlyFiles: true,
+      onlyDirectories: false,
+    }).reduce((acc, file) => {
+      acc[path.join('generated', 'global', path.basename(file).replace('.ts', ''))] = file
+      return acc
+    }, {}),
+    unbundle: true,
+  },
+  {
+    entry: fg.sync('src/generated/api/@system.*.ts', {
+      cwd: __dirname,
+      absolute: false,
+      onlyFiles: true,
+      onlyDirectories: false,
+    }).reduce((acc, file) => {
+      acc[path.join('generated', 'api', path.basename(file).replace('.ts', ''))] = file
+      return acc
+    }, {}),
+  },
+  {
+    entry: fg.sync('src/generated/api/@kit.*.ts', {
+      cwd: __dirname,
+      absolute: false,
+      onlyFiles: true,
+      onlyDirectories: false,
+    }).reduce((acc, file) => {
+      acc[path.join('generated', 'api', path.basename(file).replace('.ts', ''))] = file
+      return acc
+    }, {}),
+  },
+  {
+    entry: fg.sync('src/generated/api/@ohos.*.ts', {
+      cwd: __dirname,
+      absolute: false,
+      onlyFiles: true,
+      onlyDirectories: false,
+    }).reduce((acc, file) => {
+      acc[path.join('generated', 'api', path.basename(file).replace('.ts', ''))] = file
+      return acc
+    }, {}),
+  },
+  {
+    entry: fg.sync([
+      'src/generated/api/*.ts',
+      '!src/generated/api/@system.*.ts',
+      '!src/generated/api/@kit.*.ts',
+      '!src/generated/api/@ohos.*.ts',
+    ], {
+      cwd: __dirname,
+      absolute: false,
+      onlyFiles: true,
+      onlyDirectories: false,
+    }).reduce((acc, file) => {
+      acc[path.join('generated', 'api', path.basename(file).replace('.ts', ''))] = file
+      return acc
+    }, {}),
+  },
+  {
+    entry: {
+      'generated/filenames': 'src/generated/filenames.ts',
+    },
+  },
+])

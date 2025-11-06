@@ -1,7 +1,7 @@
 /* eslint-disable antfu/no-top-level-await */
+import { createTwoslashFromCDN } from '@arkts/twoslash-cdn'
 import { createTransformerFactory, rendererRich } from '@shikijs/twoslash/core'
 import { codeToHtml } from 'shiki'
-import { createTwoslashFromCDN } from 'twoslash-cdn'
 import { createStorage } from 'unstorage'
 import indexedDbDriver from 'unstorage/drivers/indexedb'
 
@@ -34,7 +34,7 @@ app.innerHTML = await codeToHtml(source, {
   lang: 'ts',
   theme: 'vitesse-dark',
   transformers: [
-    createTransformerFactory(twoslash.runSync)({
+    createTransformerFactory(twoslash.runSync as any)({
       renderer: rendererRich(),
     }),
   ],

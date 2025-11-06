@@ -1,4 +1,0 @@
-{
-  "code": "// eslint-disable-next-line no-console, style/indent\n   console.log('Hello' + 'World')\n",
-  "nodes": []
-}

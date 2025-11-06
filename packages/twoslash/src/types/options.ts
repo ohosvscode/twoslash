@@ -4,7 +4,7 @@ import type { CompilerOptions, CustomTransformers } from 'typescript'
 import type { HandbookOptions } from './handbook-options'
 import type { TwoslashReturnMeta } from './returns'
 
-export type TS = typeof import('typescript')
+export type TS = typeof import('ohos-typescript')
 
 export interface CompilerOptionDeclaration {
   name: string

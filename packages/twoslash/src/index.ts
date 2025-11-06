@@ -1,6 +1,6 @@
 import type { TwoslashOptions } from './core'
 import type { TwoslashOptionsLegacy, TwoslashReturnLegacy } from './legacy'
-import ts from 'typescript'
+import ts from 'ohos-typescript'
 import { createTwoslasher as _createTwoslasher, twoslasher as _twoslasher } from './core'
 import { convertLegacyOptions, convertLegacyReturn } from './legacy'
 

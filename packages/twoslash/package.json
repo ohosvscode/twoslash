@@ -39,16 +39,16 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsdown",
     "prepublishOnly": "nr build"
   },
   "peerDependencies": {
-    "typescript": "^5.5.0"
+    "ohos-typescript": "^4.9.5-r10"
   },
   "dependencies": {
     "@typescript/vfs": "catalog:",
     "fast-glob": "catalog:",
-    "twoslash-protocol": "workspace:*"
+    "twoslash-protocol": "catalog:"
   },
   "devDependencies": {
     "ohash": "catalog:"

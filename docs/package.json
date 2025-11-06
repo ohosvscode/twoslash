@@ -14,7 +14,9 @@
     "fast-glob": "catalog:",
     "floating-vue": "catalog:",
     "fuse.js": "catalog:",
+    "ohos-typescript": "catalog:",
     "sass": "catalog:",
+    "twoslash": "catalog:",
     "unocss": "catalog:",
     "vitepress": "catalog:",
     "vue": "catalog:"

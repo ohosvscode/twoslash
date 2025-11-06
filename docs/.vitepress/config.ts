@@ -1,11 +1,11 @@
 import type { DefaultTheme } from 'vitepress'
 import antfu from '@antfu/eslint-config'
+import { createTwoslasher as createTwoslasherArkts } from '@arkts/twoslash'
+import { loadAllApiFiles, loadAllGlobalFiles } from '@arkts/twoslash/loader'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import * as ets from 'ohos-typescript'
 import { bundledThemes } from 'shiki'
-import { createTwoslasher } from 'twoslash'
 import { createTwoslasher as createTwoslasherESLint } from 'twoslash-eslint'
-import { loadAllApiFiles, loadAllGlobalFiles } from 'twoslash/loader'
 import { defineConfig } from 'vitepress'
 import { version } from '../../package.json'
 import etsTmLanguageJson from './ets.tmLanguage.json'
@@ -60,10 +60,10 @@ export default defineConfig({
     },
     codeTransformers: [
       transformerTwoslash({
-        twoslasher: createTwoslasher({
+        twoslasher: createTwoslasherArkts({
           etsApiFiles: loadAllApiFiles(),
           etsGlobalScopeFiles: loadAllGlobalFiles(),
-          tsModule: ets,
+          tsModule: ets as any,
           compilerOptions: {
             packageManagerType: 'ohpm',
           },

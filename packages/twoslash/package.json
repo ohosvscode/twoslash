@@ -26,6 +26,10 @@
     "./fallback": {
       "import": "./dist/fallback.mjs",
       "require": "./dist/fallback.cjs"
+    },
+    "./loader": {
+      "import": "./dist/loader.mjs",
+      "require": "./dist/loader.cjs"
     }
   },
   "main": "dist/index.mjs",

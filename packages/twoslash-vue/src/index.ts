@@ -96,6 +96,7 @@ export function createTwoslasher(createOptions: CreateTwoslashVueOptions = {}): 
     const compilerOptions: Partial<CompilerOptions> = {
       ...defaultCompilerOptions,
       ...options.compilerOptions,
+      moduleResolution: 2 satisfies import('typescript').ModuleResolutionKind.NodeJs,
     }
     const handbookOptions: Partial<HandbookOptions> = {
       ...defaultHandbookOptions,

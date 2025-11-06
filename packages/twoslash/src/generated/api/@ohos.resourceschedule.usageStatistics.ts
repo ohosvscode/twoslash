@@ -1,0 +1,7 @@
+import type { GeneratedEtsLibFile } from "../../types/generated";
+
+export const FILE: GeneratedEtsLibFile = {
+  path: 'ets/api/@ohos.resourceschedule.usageStatistics.d.ts',
+  content: "/*\n * Copyright (c) 2023  Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *     http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n/**\n * @file\n * @kit BackgroundTasksKit\n */\n\n/**\n * Provides methods for managing bundle usage statistics,\n * including the methods for querying bundle usage information and state data.\n *\n * <p>You can use the methods defined in this class to query\n * the usage history and states of bundles in a specified period.\n * The system stores the query result in a {@link BundleStatsInfo} instance and\n * then returns it to you.\n *\n * @namespace usageStatistics\n * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App\n * @since 9\n */\ndeclare namespace usageStatistics {\n}\nexport default usageStatistics;\n",
+}
+export default FILE;

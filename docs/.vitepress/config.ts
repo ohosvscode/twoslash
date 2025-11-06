@@ -1,7 +1,11 @@
 import type { DefaultTheme } from 'vitepress'
+import antfu from '@antfu/eslint-config'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import * as ets from 'ohos-typescript'
 import { bundledThemes } from 'shiki'
 import { createTwoslasher } from 'twoslash'
+import { createTwoslasher as createTwoslasherESLint } from 'twoslash-eslint'
+import { loadAllApiFiles, loadAllGlobalFiles } from 'twoslash/loader'
 import { defineConfig } from 'vitepress'
 import { version } from '../../package.json'
 import etsTmLanguageJson from './ets.tmLanguage.json'
@@ -56,43 +60,38 @@ export default defineConfig({
     },
     codeTransformers: [
       transformerTwoslash({
-        twoslasher: createTwoslasher(),
+        twoslasher: createTwoslasher({
+          etsApiFiles: loadAllApiFiles(),
+          etsGlobalScopeFiles: loadAllGlobalFiles(),
+          tsModule: ets,
+          compilerOptions: {
+            packageManagerType: 'ohpm',
+          },
+        }),
         twoslashOptions: {
           compilerOptions: {
-            moduleResolution: 2 satisfies import('typescript').ModuleResolutionKind.NodeJs,
+            packageManagerType: 'ohpm',
           },
         },
-        langs: [
-          'js',
-          'javascript',
-          'ts',
-          'typescript',
-          'tsx',
-          'jsx',
-          'json',
-          'jsn',
-          'map',
-          'mts',
-          'cts',
-          'ets',
-          'arkts',
-        ],
-      }) as any,
-      // transformerTwoslash({
-      //   errorRendering: 'hover',
-      //   twoslasher: createTwoslasherESLint({
-      //     eslintConfig: [
-      //       ...await antfu() as any,
-      //       {
-      //         files: ['**'],
-      //         rules: {
-      //           'style/eol-last': 'off',
-      //         },
-      //       },
-      //     ],
-      //   }) as any,
-      //   explicitTrigger: /\beslint-check\b/,
-      // }),
+        langs: ['ets', 'arkts'],
+      }),
+      transformerTwoslash(),
+      transformerTwoslash({
+        errorRendering: 'hover',
+        twoslasher: createTwoslasherESLint({
+          eslintConfig: [
+            // eslint-disable-next-line antfu/no-top-level-await
+            ...await antfu() as any,
+            {
+              files: ['**'],
+              rules: {
+                'style/eol-last': 'off',
+              },
+            },
+          ],
+        }) as any,
+        explicitTrigger: /\beslint-check\b/,
+      }),
       {
         // Render custom themes with codeblocks
         name: 'twoslash:inline-theme',

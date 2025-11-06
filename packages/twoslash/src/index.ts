@@ -6,6 +6,7 @@ import { convertLegacyOptions, convertLegacyReturn } from './legacy'
 
 export * from './legacy'
 export * from './public'
+export * from 'twoslash-protocol'
 
 // eslint-disable-next-line node/prefer-global/process
 const cwd = /* @__PURE__ */ typeof process !== 'undefined' && typeof process.cwd === 'function' ? process.cwd() : ''

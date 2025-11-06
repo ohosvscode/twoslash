@@ -1,0 +1,7 @@
+import type { GeneratedEtsLibFile } from "../../types/generated";
+
+export const FILE: GeneratedEtsLibFile = {
+  path: 'ets/kits/@kit.ArkGraphics2D.d.ts',
+  content: "/*\n * Copyright (c) 2022-2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *     http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n/**\n * @file\n * @kit ArkGraphics2D\n */\nimport effectKit from '@ohos.effectKit';\nimport colorSpaceManager from '@ohos.graphics.colorSpaceManager';\nimport sendableColorSpaceManager from '@ohos.graphics.sendableColorSpaceManager';\nimport hdrCapability from '@ohos.graphics.hdrCapability';\nimport displaySync from '@ohos.graphics.displaySync';\nimport common2D from '@ohos.graphics.common2D';\nimport drawing from '@ohos.graphics.drawing';\nimport text from '@ohos.graphics.text';\nimport uiEffect from '@ohos.graphics.uiEffect';\nexport { displaySync, colorSpaceManager, sendableColorSpaceManager, hdrCapability, effectKit, common2D, drawing, text, uiEffect };\n",
+}
+export default FILE;

@@ -15,6 +15,6 @@ export default antfu({
     '**/test/results/**/*',
     '**/.eval*',
     'packages/twoslash/ets/**/*',
-    'packages/twoslash/ets.generated.ts',
+    'packages/twoslash/src/generated/**/*',
   ],
 })

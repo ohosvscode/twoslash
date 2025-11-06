@@ -1,0 +1,7 @@
+import type { GeneratedEtsLibFile } from "../../types/generated";
+
+export const FILE: GeneratedEtsLibFile = {
+  path: 'ets/kits/@kit.InputKit.d.ts',
+  content: "import { ActionType, FourFingersSwipe, Pinch, Rotate, ThreeFingersSwipe, ThreeFingersTap } from '@ohos.multimodalInput.gestureEvent';\nimport infraredEmitter from '@ohos.multimodalInput.infraredEmitter';\nimport inputConsumer from '@ohos.multimodalInput.inputConsumer';\nimport inputDevice from '@ohos.multimodalInput.inputDevice';\nimport inputDeviceCooperate from '@ohos.multimodalInput.inputDeviceCooperate';\nimport { InputEvent } from '@ohos.multimodalInput.inputEvent';\nimport { IntentionCode } from '@ohos.multimodalInput.intentionCode';\nimport { KeyCode } from '@ohos.multimodalInput.keyCode';\nimport { Action, Key, KeyEvent } from '@ohos.multimodalInput.keyEvent';\nimport { Action as MouseAction, Axis, AxisValue, Button, MouseEvent, ToolType as MouseToolType } from '@ohos.multimodalInput.mouseEvent';\nimport pointer from '@ohos.multimodalInput.pointer';\nimport { Action as KeyAction, SourceType, ToolType, Touch, TouchEvent } from '@ohos.multimodalInput.touchEvent';\nexport { Action, ActionType, Axis, AxisValue, Button, FourFingersSwipe, InputEvent, IntentionCode, Key, KeyAction, KeyCode, KeyEvent, MouseAction, MouseEvent, MouseToolType, Pinch, Rotate, SourceType, ThreeFingersSwipe, ThreeFingersTap, ToolType, Touch, TouchEvent, inputConsumer, inputDevice, inputDeviceCooperate, pointer, infraredEmitter };\n",
+}
+export default FILE;

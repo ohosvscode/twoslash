@@ -38,6 +38,7 @@
     "lint-staged": "catalog:",
     "lz-string": "catalog:",
     "mlly": "catalog:",
+    "ohos-typescript": "catalog:",
     "preact": "catalog:",
     "pretty-format": "catalog:",
     "react": "catalog:",

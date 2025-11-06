@@ -92,4 +92,13 @@ export interface CreateTwoslashOptions extends TwoslashExecuteOptions {
    * @default true
    */
   fsCache?: boolean
+  /**
+   * A map of file paths to virtual file contents
+   */
+  etsApiFiles?: Record<string, string>
+
+  /**
+   * A map of file paths to virtual file contents
+   */
+  etsGlobalScopeFiles?: Record<string, string>
 }

@@ -6,6 +6,7 @@ import Theme from 'vitepress/theme'
 import '@shikijs/vitepress-twoslash/style.css'
 import 'uno.css'
 import './styles/index.scss'
+import './styles/homepage.scss'
 
 export default {
   extends: Theme,

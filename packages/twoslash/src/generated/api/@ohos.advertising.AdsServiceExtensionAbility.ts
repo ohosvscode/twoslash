@@ -1,0 +1,7 @@
+import type { GeneratedEtsLibFile } from "../../types/generated";
+
+export const FILE: GeneratedEtsLibFile = {
+  path: 'ets/api/@ohos.advertising.AdsServiceExtensionAbility.d.ts',
+  content: "/*\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *     http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n/**\n * @file Provides the capability of integrating advertising services with vendors\n * @kit AdsKit\n */\nimport type advertising from './@ohos.advertising';\n/**\n * Defines the callback of loading ad.\n * @typedef RespCallback\n * @syscap SystemCapability.Advertising.Ads\n * @since 11\n */\nexport interface RespCallback {\n    /**\n     * Defines the callback data.\n     * @param { Map<string, Array<advertising.Advertisement>> } respData\n     * @syscap SystemCapability.Advertising.Ads\n     * @since 11\n     */\n    (respData: Map<string, Array<advertising.Advertisement>>): void;\n}\n",
+}
+export default FILE;

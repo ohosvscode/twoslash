@@ -5,7 +5,6 @@ import type { CompilerOptionDeclaration, CreateTwoslashOptions, TwoslashExecuteO
 import { createFSBackedSystem, createSystem, createVirtualTypeScriptEnvironment } from '@typescript/vfs'
 
 import { createPositionConverter, isInRange, isInRanges, removeCodeRanges, resolveNodePositions } from 'twoslash-protocol'
-import { etsApiFiles, etsGlobalScopeFiles } from '../ets.generated'
 import { defaultCompilerOptions, defaultHandbookOptions } from './defaults'
 import { TwoslashError } from './error'
 
@@ -27,6 +26,11 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
   const useFS = !!createOptions.fsMap
   const _root = createOptions.vfsRoot!.replace(/\\/g, '/') // Normalize slashes
   const vfs = createOptions.fsMap || new Map<string, string>()
+  const etsApiFiles = createOptions.etsApiFiles || {}
+  const etsGlobalScopeFiles = createOptions.etsGlobalScopeFiles || {}
+  Object.entries(etsApiFiles).forEach(([filename, content]) => vfs.set(`/${filename}`, content))
+  Object.entries(etsGlobalScopeFiles).forEach(([filename, content]) => vfs.set(`/${filename}`, content))
+
   const system = useFS
     ? createSystem(vfs)
     : createCacheableFSBackedSystem(vfs, _root, ts, createOptions.tsLibDirectory, createOptions.fsCache)
@@ -37,7 +41,6 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
     : createOptions.cache instanceof Map
       ? createOptions.cache
       : new Map<string, ReturnType<typeof createVirtualTypeScriptEnvironment>>()
-
   function getEnv(compilerOptions: CompilerOptions) {
     if (!cache)
       return createVirtualTypeScriptEnvironment(system, [], ts, compilerOptions, createOptions.customTransformers)
@@ -59,6 +62,7 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
       extension: typesToExtension(extension),
       compilerOptions: {
         ...defaultCompilerOptions,
+        lib: Object.keys(etsGlobalScopeFiles).map(i => `/${i}`),
         baseUrl: fsRoot,
         ...createOptions.compilerOptions,
         ...options.compilerOptions,
@@ -183,18 +187,6 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
           )
         }
       })
-
-    Object.entries(etsApiFiles).forEach(([filename, content]) => {
-      if (!meta.virtualFiles.find(i => i.filename === filename)) {
-        env.createFile(fsRoot + filename, content)
-      }
-    })
-
-    Object.entries(etsGlobalScopeFiles).forEach(([filename, content]) => {
-      if (!meta.virtualFiles.find(i => i.filename === filename)) {
-        env.createFile(fsRoot + filename, content)
-      }
-    })
 
     // # region write files into the FS
     for (const file of meta.virtualFiles) {

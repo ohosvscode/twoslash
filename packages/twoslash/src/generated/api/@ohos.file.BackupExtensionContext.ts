@@ -1,0 +1,7 @@
+import type { GeneratedEtsLibFile } from "../../types/generated";
+
+export const FILE: GeneratedEtsLibFile = {
+  path: 'ets/api/@ohos.file.BackupExtensionContext.d.ts',
+  content: "/*\n * Copyright (c) 2024 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n * http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n/**\n * @file\n * @kit CoreFileKit\n */\nimport ExtensionContext from './application/ExtensionContext';\n/**\n * The context of an ability or an application. It allows access to\n * application-specific resources.\n * Can only be obtained through the ability.\n *\n * @extends ExtensionContext\n * @syscap SystemCapability.FileManagement.StorageService.Backup\n * @StageModelOnly\n * @since 12\n */\nexport default class BackupExtensionContext extends ExtensionContext {\n    /**\n     * Indicates backup dir.\n     *\n     * @type { string }\n     * @syscap SystemCapability.FileManagement.StorageService.Backup\n     * @StageModelOnly\n     * @since 12\n     */\n    readonly backupDir: string;\n}\n",
+}
+export default FILE;

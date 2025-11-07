@@ -1,15 +1,15 @@
-# twoslash-cdn
+# twoslash-cdn for ArkTS
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 
-Run Twoslash on the browsers or web workers, with [Auto-Type-Acquisition](https://www.typescriptlang.org/play#example/automatic-type-acquisition) from CDN.
+Run Twoslash for ArkTS (.ets) on the browsers or web workers, with [Auto-Type-Acquisition](https://www.typescriptlang.org/play#example/automatic-type-acquisition) from CDN.
 
-[📚 Documentation](https://twoslash.netlify.app/packages/cdn)
+[📚 Documentation](https://arkcode.dev/twoslash/guide)
 
 ## License
 
-[MIT](./LICENSE) License © 2023-PRESENT [Anthony Fu](https://github.com/antfu)
+[MIT](./LICENSE) License © 2023-PRESENT [Anthony Fu](https://github.com/antfu), [ArkCode](https://arkcode.dev) contributors.
 
 <!-- Badges -->
 

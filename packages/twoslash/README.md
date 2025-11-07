@@ -1,6 +1,6 @@
 <img src="https://twoslash.netlify.app/logo.svg" alt="Twoslash Logo" width="150">
 
-# Twoslash
+# Twoslash for ArkTS
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -8,15 +8,13 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-[📚 Documentation](https://twoslash.netlify.app/) | [⚙️ Migration Guide](https://twoslash.netlify.app/guide/migrate)
+[📚 Documentation](https://arkcode.dev/twoslash/guide)
 
-A markup format for TypeScript code, ideal for creating self-contained code samples which let the TypeScript compiler do the extra leg-work. Inspired by the [fourslash test system](https://github.com/orta/typescript-notes/blob/master/systems/testing/fourslash.md).
-
-This project is the successor of [`@typescript/twoslash`](https://github.com/microsoft/TypeScript-Website/tree/v2/packages/ts-twoslasher).
+A markup format for ArkTS (.ets) code, ideal for creating self-contained code samples which let the ArkTS compiler do the extra leg-work. It is a fork of the [Twoslash](https://github.com/twoslashes/twoslash) project, but adapted for ArkTS.
 
 ## License
 
-MIT License © [Orta Therox](https://github.com/orta), [Anthony Fu](https://github.com/antfu), Microsoft Corporation
+MIT License © [Orta Therox](https://github.com/orta), [Anthony Fu](https://github.com/antfu), Microsoft Corporation, [ArkCode](https://arkcode.dev) contributors
 
 <!-- Badges -->
 

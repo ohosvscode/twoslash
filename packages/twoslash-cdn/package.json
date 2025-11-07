@@ -2,20 +2,21 @@
   "name": "@arkts/twoslash-cdn",
   "type": "module",
   "version": "0.3.7",
-  "description": "Run Twoslash on the browser, with Auto-Type-Acquisition on CDN.",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "description": "Run Twoslash for ArkTS (.ets) on the browser, with Auto-Type-Acquisition on CDN.",
+  "author": "Naily Zero <zero@naily.cc>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/twoslashes/twoslash#readme",
+  "homepage": "https://github.com/ohosvscode/twoslash#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twoslashes/twoslash.git",
+    "url": "git+https://github.com/ohosvscode/twoslash.git",
     "directory": "packages/twoslash-cdn"
   },
-  "bugs": "https://github.com/twoslashes/twoslash/issues",
+  "bugs": "https://github.com/ohosvscode/twoslash/issues",
   "keywords": [
-    "typescript",
-    "twoslash"
+    "arkts",
+    "ohos",
+    "twoslash",
+    "arkcode"
   ],
   "sideEffects": false,
   "exports": {

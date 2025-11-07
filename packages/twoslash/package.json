@@ -2,17 +2,17 @@
   "name": "@arkts/twoslash",
   "type": "module",
   "version": "0.3.7",
-  "description": "Twoslash for ArkTS language, markup for generating rich type information in your documentations ahead of time.",
-  "author": "TypeScript team",
+  "description": "Twoslash for ArkTS (.ets), markup for generating rich type information in your documentations ahead of time.",
+  "author": "Naily Zero <zero@naily.cc>",
   "license": "MIT",
-  "homepage": "https://github.com/twoslashes/twoslash",
+  "homepage": "https://github.com/ohosvscode/twoslash",
   "repository": {
-    "url": "https://github.com/twoslashes/twoslash",
+    "url": "https://github.com/ohosvscode/twoslash",
     "type": "git",
     "directory": "packages/twoslash"
   },
   "bugs": {
-    "url": "https://github.com/twoslashes/twoslash/issues"
+    "url": "https://github.com/ohosvscode/twoslash/issues"
   },
   "exports": {
     ".": {

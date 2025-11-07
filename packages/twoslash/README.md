@@ -1,4 +1,4 @@
-<img src="https://twoslash.netlify.app/logo.svg" alt="Twoslash Logo" width="150">
+<img src="https://arkcode.dev/images/twoslash-plus-arkts.svg" alt="Twoslash Logo" width="230">
 
 # Twoslash for ArkTS
 

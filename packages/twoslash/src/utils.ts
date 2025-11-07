@@ -366,9 +366,10 @@ export function findQueryMarkers(
 /** De-extension a filename, used for going from an output file to the source */
 export function removeTsExtension(filename: string) {
   // originally, .replace(".jsx", "").replace(".js", "").replace(".d.ts", "").replace(".map", "")
-  const sansMapOrDTS = filename
+  return filename
     .replace(/\.map$/, '')
+    .replace(/\.d\.ets$/, '.ets')
     .replace(/\.d\.ts$/, '.ts')
     .replace(/\.map$/, '')
-  return sansMapOrDTS.replace(/\.[^/.]+$/, '')
+    .replace(/\.[^/.]+$/, '')
 }

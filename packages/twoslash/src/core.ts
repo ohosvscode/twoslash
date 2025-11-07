@@ -417,7 +417,7 @@ export function createTwoslasher(createOptions: CreateTwoslashOptions = {}): Two
         ? meta.handbookOptions.showEmittedFile
         : meta.compilerOptions.jsx === 1 satisfies JsxEmit.Preserve
           ? 'index.jsx'
-          : 'index.js'
+          : 'index.d.ets'
 
       let emitSource = meta.virtualFiles.find(i => removeTsExtension(i.filename) === removeTsExtension(emitFilename))?.filename
 

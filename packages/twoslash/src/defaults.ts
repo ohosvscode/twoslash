@@ -33,6 +33,8 @@ export const defaultCompilerOptions: CompilerOptions = {
   tsImportSendableEnable: true,
   etsLoaderPath: 'ets/build-tools/ets-loader',
   resolveJsonModule: false,
+  declaration: true,
+  emitDeclarationOnly: true,
 }
 
 export const defaultHandbookOptions: HandbookOptions = {

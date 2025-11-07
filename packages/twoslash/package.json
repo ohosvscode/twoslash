@@ -1,7 +1,7 @@
 {
   "name": "@arkts/twoslash",
   "type": "module",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Twoslash for ArkTS (.ets), markup for generating rich type information in your documentations ahead of time.",
   "author": "Naily Zero <zero@naily.cc>",
   "license": "MIT",

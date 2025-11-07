@@ -1,7 +1,7 @@
 {
   "name": "@arkts/twoslash-cdn",
   "type": "module",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Run Twoslash for ArkTS (.ets) on the browser, with Auto-Type-Acquisition on CDN.",
   "author": "Naily Zero <zero@naily.cc>",
   "license": "MIT",

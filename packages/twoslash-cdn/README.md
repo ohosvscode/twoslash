@@ -13,7 +13,7 @@ Run Twoslash for ArkTS (.ets) on the browsers or web workers, with [Auto-Type-Ac
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/twoslash-cdn?style=flat&colorA=161514&colorB=EAB836
-[npm-version-href]: https://npmjs.com/package/twoslash-cdn
-[npm-downloads-src]: https://img.shields.io/npm/dm/twoslash-cdn?style=flat&colorA=161514&colorB=E66041
-[npm-downloads-href]: https://npmjs.com/package/twoslash-cdn
+[npm-version-src]: https://img.shields.io/npm/v/@arkts/twoslash-cdn?style=flat&colorA=161514&colorB=EAB836
+[npm-version-href]: https://npmjs.com/package/@arkts/twoslash-cdn
+[npm-downloads-src]: https://img.shields.io/npm/dm/@arkts/twoslash-cdn?style=flat&colorA=161514&colorB=E66041
+[npm-downloads-href]: https://npmjs.com/package/@arkts/twoslash-cdn

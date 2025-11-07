@@ -18,13 +18,13 @@ MIT License © [Orta Therox](https://github.com/orta), [Anthony Fu](https://gith
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/twoslash?style=flat&colorA=161514&colorB=EAB836
-[npm-version-href]: https://npmjs.com/package/twoslash
-[npm-downloads-src]: https://img.shields.io/npm/dm/twoslash?style=flat&colorA=161514&colorB=E66041
-[npm-downloads-href]: https://npmjs.com/package/twoslash
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/twoslash?style=flat&colorA=161514&colorB=45627B&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=twoslash
-[license-src]: https://img.shields.io/github/license/twoslashes/twoslash.svg?style=flat&colorA=161514&colorB=45627B
-[license-href]: https://github.com/twoslashes/twoslash/blob/main/LICENSE
+[npm-version-src]: https://img.shields.io/npm/v/@arkts/twoslash?style=flat&colorA=161514&colorB=EAB836
+[npm-version-href]: https://npmjs.com/package/@arkts/twoslash
+[npm-downloads-src]: https://img.shields.io/npm/dm/@arkts/twoslash?style=flat&colorA=161514&colorB=E66041
+[npm-downloads-href]: https://npmjs.com/package/@arkts/twoslash
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@arkts/twoslash?style=flat&colorA=161514&colorB=45627B&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=@arkts/twoslash
+[license-src]: https://img.shields.io/github/license/ohosvscode/twoslash.svg?style=flat&colorA=161514&colorB=45627B
+[license-href]: https://github.com/ohosvscode/twoslash/blob/main/LICENSE
 [jsdocs-src]: https://img.shields.io/badge/jsdocs-reference-161514?style=flat&colorA=161514&colorB=EAB836
-[jsdocs-href]: https://www.jsdocs.io/package/twoslash
+[jsdocs-href]: https://www.jsdocs.io/package/@arkts/twoslash
